@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioAtendimento" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="66b14d8e-3f14-4b2c-96dd-529a910622ee">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     atendimento_medico.`Hora_Atendimento` atendimento_medico.`Hora_Solicitado` AS atendimento_medico_Hora_Solicitado,
+     atendimento_medico.`idAtendimento_Medico` AS atendimento_medico_idAtendimento_Medico,
+     atendimento_medico.`Pacientes_IdPaciente` AS atendimento_medico_Pacientes_IdPaciente,
+     atendimento_medico.`Quarto_Numero` AS atendimento_medico_Quarto_Numero,
+     atendimento_medico.`Prontuario_idProntuario` AS atendimento_medico_Prontuario_idProntuario,
+     atendimento_medico.`Funcionarios_IdFuncionario` AS atendimento_medico_Funcionarios_IdFuncionario,
+     atendimento_medico.`NomeFuncionario` AS atendimento_medico_NomeFuncionario,
+     atendimento_medico.`Data_Atendimento` AS atendimento_medico_Data_Atendimento,
+     atendimento_medico.`Hora_Solicitado` AS atendimento_medico_Hora_Solicitado,
+     atendimento_medico.`Hora_Atendimento` AS atendimento_medico_Hora_Atendimento
+FROM
+     `atendimento_medico` atendimento_medico]]>
+	</queryString>
+	<field name="atendimento_medico_idAtendimento_Medico" class="java.lang.Integer"/>
+	<field name="atendimento_medico_Pacientes_IdPaciente" class="java.lang.Integer"/>
+	<field name="atendimento_medico_Quarto_Numero" class="java.lang.Integer"/>
+	<field name="atendimento_medico_Prontuario_idProntuario" class="java.lang.Integer"/>
+	<field name="atendimento_medico_Funcionarios_IdFuncionario" class="java.lang.Integer"/>
+	<field name="atendimento_medico_NomeFuncionario" class="java.lang.String"/>
+	<field name="atendimento_medico_Data_Atendimento" class="java.lang.String"/>
+	<field name="atendimento_medico_Hora_Atendimento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="37" y="0" width="579" height="62" uuid="d3158234-a0ac-48ee-93c2-e60b4ef2f180"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Relatório de Atendimentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="237" y="62" width="262" height="22" uuid="51267806-4041-47a5-96b0-5024af6b7df7"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Todos os atendimentos já realizados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="4f136297-b3b4-4d73-a2de-fbd20c8750eb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="74" height="15" forecolor="#736343" uuid="4e27b690-714c-49fc-9428-1e694771105f"/>
+				<text><![CDATA[IdMedico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="84" y="0" width="76" height="15" forecolor="#736343" uuid="6dd8f272-7aec-408a-9fd7-70b66fbd6706"/>
+				<text><![CDATA[IdPaciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="172" y="0" width="87" height="15" forecolor="#736343" uuid="e9479470-1322-4b51-9d3f-c49523dd72f3"/>
+				<text><![CDATA[NumeroQuarto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="270" y="0" width="73" height="15" forecolor="#736343" uuid="e7e338d6-0330-4575-ae50-9ebd222cc935"/>
+				<text><![CDATA[IdProntuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="356" y="0" width="81" height="15" forecolor="#736343" uuid="c18a4d98-4f77-433b-ab79-970564f1a353"/>
+				<text><![CDATA[IdFuncionario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="448" y="0" width="108" height="15" forecolor="#736343" uuid="8e2bbf2c-f4f4-464c-b84d-84104f47179e"/>
+				<text><![CDATA[NomeFuncionario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="556" y="0" width="50" height="15" forecolor="#736343" uuid="80b9365d-cc71-4031-b45d-9d1c4671bb68"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="606" y="0" width="108" height="15" forecolor="#736343" uuid="cd1813e9-50be-44ab-ae75-7975e1beead8"/>
+				<text><![CDATA[HoraAtendimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="714" y="0" width="108" height="15" forecolor="#736343" uuid="22dc5cd9-6f41-43d6-ad7f-373098b0fe59"/>
+				<text><![CDATA[HoraSolicitado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="1b8f8f3d-6fea-466d-8c5e-37653e2dc1fd"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="74" height="15" uuid="f2be994e-c53c-4ff1-a4d1-d0f2c8988237"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_idAtendimento_Medico}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="84" y="0" width="76" height="15" uuid="a333fa05-58fa-4adf-873b-20a461e8150a"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Pacientes_IdPaciente}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="172" y="0" width="87" height="15" uuid="ea8bc8e2-1772-4c59-a979-2add3d906186"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Quarto_Numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="270" y="0" width="73" height="15" uuid="bc320199-ef1a-47bc-a56b-a8618c3dac8b"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Prontuario_idProntuario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="356" y="0" width="81" height="15" uuid="908947b4-cc58-4675-bfb3-7bb0f3eb7eab"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Funcionarios_IdFuncionario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="448" y="0" width="108" height="15" uuid="fefff096-91e8-4ba8-8e9f-3504d419eefb"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_NomeFuncionario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="556" y="0" width="50" height="15" uuid="00f814f2-acdc-4bb5-9111-80e38e13ebe3"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Data_Atendimento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="606" y="0" width="108" height="15" uuid="eae8db75-4fa8-4f0b-b239-781e5550a915"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Hora_Atendimento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="714" y="0" width="88" height="15" uuid="4ace1a3c-49e2-4d8a-abbb-9fcedb5863e9"/>
+					<textFieldExpression><![CDATA[$F{atendimento_medico_Hora_Solicitado]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="c03d8225-2b79-40d0-9fa1-7175d56595e4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="a0a1e75c-36bc-4fa5-b1b3-4f1edbf048f8"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="99d9194d-6d8a-49e7-ae6c-8109fc92aac9"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="715" y="1" width="68" height="20" forecolor="#736343" uuid="2a699044-21da-4cee-8a3f-b961ede790f1"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="79ebb205-f7f2-4897-abfd-d0771f3acec9"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
